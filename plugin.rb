@@ -12,15 +12,12 @@ after_initialize do
 
   DiscourseEvent.on(:user_updated) do |user|
     if SiteSetting.custom_notification_enabled then
-      notification_type = Notification.types[:group_message_summary]
+      notification_type = Notification.types[:custom]
       Notification.create(
         notification_type: notification_type,
         user_id: user.id,
         data: {
-          group_id: 3,
-          group_name: "персонал",
-          inbox_count: 10,
-          username: user.username_lower
+          title: user.username_lower + " привет"
         }.to_json
       )
     end
