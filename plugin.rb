@@ -17,7 +17,7 @@ after_initialize do
         notification_type: notification_type,
         user_id: user.id,
         data: {
-          username: user.username_lower
+          username: user.username_lower,
           description: "привет"
         }.to_json
       )
