@@ -10,16 +10,26 @@ enabled_site_setting :custom_notification_enabled
 
 after_initialize do
 
-  DiscourseEvent.on(:user_updated) do |user|
+  DiscourseEvent.on(:user_first_logged_in) do |user|
     if SiteSetting.custom_notification_enabled then
-      notification_type = Notification.types[:custom]
+      notification_type = Notification.types[:private_message]
       Notification.create(
         notification_type: notification_type,
         user_id: user.id,
         data: {
-          title: user.username_lower + " привет"
+          username: user.username_lower
+          description: "привет"
         }.to_json
       )
+    end
+  end
+
+  DiscourseEvent.on(:user_created) do |user|
+    if SiteSetting.custom_notification_enabled then
+      reviewable = ReviewableUser.find_by(target: user) ||
+      Jobs::CreateUserReviewable.new.execute(user_id: user.id).reviewable
+
+      reviewable.perform(current_user, :approve_user)
     end
   end
 
