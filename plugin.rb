@@ -26,10 +26,7 @@ after_initialize do
 
   DiscourseEvent.on(:user_created) do |user|
     if SiteSetting.custom_notification_enabled then
-      reviewable = ReviewableUser.find_by(target: user) ||
-      Jobs::CreateUserReviewable.new.execute(user_id: user.id).reviewable
-
-      reviewable.perform(current_user, :approve_user)
+      User.new.approve(user.id)
     end
   end
 
