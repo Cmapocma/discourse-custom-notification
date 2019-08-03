@@ -24,10 +24,10 @@ after_initialize do
     end
   end
 
-  DiscourseEvent.on(:user_created) do |user|
-    if SiteSetting.custom_notification_enabled then
-      User.new.approve(user.id)
-    end
-  end
+  #DiscourseEvent.on(:user_created) do |user|
+   # if SiteSetting.custom_notification_enabled then
+   #   User.new.approve(user.id)
+   # end
+ # end
 
 end
