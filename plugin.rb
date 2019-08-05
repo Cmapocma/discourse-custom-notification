@@ -16,7 +16,7 @@ after_initialize do
     if SiteSetting.custom_notification_enabled then
       notification_type = Notification.types[:custom]
       group_users = GroupUser.where(group_id: 3);
-      group_users do |group_user|
+      group_users.each do |group_user|
       Notification.create(
         notification_type: notification_type,
         user_id: group_user.user_id,
