@@ -21,9 +21,9 @@ after_initialize do
         notification_type: notification_type,
         user_id: group_user.user_id,
         data: {
-          message: "custom_notifications.first_visit",
-          display_username: user.username,
-          topic_title: "<a href=/u/#{user.username_lower}>#{user.username} первый визит</a>",
+          message: "custom_notification",
+          display_username: "/u/#{user.username_lower}",
+          topic_title: "#{user.username} первый визит",
         }.to_json
       )
     end
@@ -37,7 +37,7 @@ end
         notification_type: notification_type,
         user_id: user.id,
         data: {
-          message: "custom_notifications.first_visit",
+          message: "custom_notification",
           display_username: user.username,
           description: ""
         }.to_json

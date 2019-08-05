@@ -1,4 +1,3 @@
 ru:
   js:
-    custom_notifications:
-      first_visit: "<span>{{username}}</span> {{description}}"
+    custom_notification: "<a href='{{username}}'>{{description}}</a>"
