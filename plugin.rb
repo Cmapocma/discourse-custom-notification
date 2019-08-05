@@ -15,17 +15,20 @@ after_initialize do
   DiscourseEvent.on(:user_updated) do |user|
     if SiteSetting.custom_notification_enabled then
       notification_type = Notification.types[:custom]
+      group_users = GroupUser.where(group_id: 3);
+      group_users do |group_user|
       Notification.create(
         notification_type: notification_type,
-        user_id: user.id,
+        user_id: group_user.user_id,
         data: {
           message: "custom_notifications.first_visit",
           display_username: user.username,
-          description: ""
+          description: "test"
         }.to_json
       )
     end
   end
+end
 
   DiscourseEvent.on(:user_first_logged_in) do |user|
     if SiteSetting.custom_notification_enabled then
