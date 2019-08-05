@@ -1,0 +1,4 @@
+ru:
+  js:
+    notifications:
+      custom: "<span>{{username}}</span> {{description}}"

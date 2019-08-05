@@ -10,15 +10,33 @@ enabled_site_setting :custom_notification_enabled
 
 after_initialize do
 
-  DiscourseEvent.on(:user_first_logged_in) do |user|
+
+
+  DiscourseEvent.on(:user_updated) do |user|
     if SiteSetting.custom_notification_enabled then
-      notification_type = Notification.types[:private_message]
+      notification_type = Notification.types[:custom]
       Notification.create(
         notification_type: notification_type,
         user_id: user.id,
         data: {
-          username: user.username_lower,
-          description: "привет"
+          message: "notifications.custom",
+          display_username: user.username,
+          description: "первый раз зашел на сайт"
+        }.to_json
+      )
+    end
+  end
+
+  DiscourseEvent.on(:user_first_logged_in) do |user|
+    if SiteSetting.custom_notification_enabled then
+      notification_type = Notification.types[:custom]
+      Notification.create(
+        notification_type: notification_type,
+        user_id: user.id,
+        data: {
+          message: "notifications.custom",
+          display_username: user.username,
+          description: "первый раз зашел на сайт"
         }.to_json
       )
     end
