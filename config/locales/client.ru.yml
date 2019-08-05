@@ -1,4 +1,4 @@
 ru:
   js:
-    notifications:
-      custom: "<span>{{username}}</span> {{description}}"
+    custom_notifications:
+      first_visit: "<span>{{username}}</span> первый визит"

@@ -19,9 +19,9 @@ after_initialize do
         notification_type: notification_type,
         user_id: user.id,
         data: {
-          message: "notifications.custom",
+          message: "custom_notifications.first_visit",
           display_username: user.username,
-          description: "первый раз зашел на сайт"
+          description: ""
         }.to_json
       )
     end
@@ -34,9 +34,9 @@ after_initialize do
         notification_type: notification_type,
         user_id: user.id,
         data: {
-          message: "notifications.custom",
+          message: "custom_notifications.first_visit",
           display_username: user.username,
-          description: "первый раз зашел на сайт"
+          description: ""
         }.to_json
       )
     end
