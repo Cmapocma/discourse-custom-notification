@@ -23,7 +23,7 @@ after_initialize do
         data: {
           message: "custom_notifications.first_visit",
           display_username: user.username,
-          description: "test"
+          topic_title: "<a href=/u/#{user.username_lower}>#{user.username} первый визит</a>",
         }.to_json
       )
     end
