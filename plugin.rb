@@ -13,7 +13,7 @@ after_initialize do
   DiscourseEvent.on(:user_first_logged_in) do |user|
     if SiteSetting.custom_notification_enabled then
       notification_type = Notification.types[:custom]
-      group_users = GroupUser.where(group_id: 3);
+      group_users = GroupUser.where(group_id: 3)
       group_users.each do |group_user|
         Notification.create(
           notification_type: notification_type,
@@ -31,7 +31,7 @@ after_initialize do
   DiscourseEvent.on(:user_created) do |user|
     if SiteSetting.custom_notification_enabled then
       notification_type = Notification.types[:custom]
-      group_users = GroupUser.where(group_id: 3);
+      group_users = GroupUser.where(group_id: 3)
       group_users.each do |group_user|
         Notification.create(
           notification_type: notification_type,
