@@ -28,7 +28,6 @@ after_initialize do
     end
   end
 
-
   DiscourseEvent.on(:user_created) do |user|
     if SiteSetting.custom_notification_enabled then
       notification_type = Notification.types[:custom]
