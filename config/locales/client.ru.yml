@@ -1,0 +1,5 @@
+ru:
+  js:
+    custom_notification: 
+      register: "<svg class=\"fa d-icon d-icon-user-plus svg-icon svg-string\" xmlns=\"http://www.w3.org/2000/svg\"><use xlink:href=\"#user-plus\"></use></svg><div><span>{{username}}</span> {{description}}</div>"
+      fipst_login: "<svg class=\"fa d-icon d-icon-user svg-icon svg-string\" xmlns=\"http://www.w3.org/2000/svg\"><use xlink:href=\"#user\"></use></svg><div><span>{{username}}</span> {{description}}</div>"
