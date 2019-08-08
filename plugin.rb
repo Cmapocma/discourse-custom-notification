@@ -19,9 +19,9 @@ after_initialize do
           notification_type: notification_type,
           user_id: group_user.user_id,
           data: {
-            message: "custom_notification",
-            display_username: "/u/#{user.username_lower}",
-            topic_title: "#{user.username} первый визит",
+            message: "custom_notification.fipst_login",
+            display_username: user.username,
+            topic_title: "первый визит",
           }.to_json
         )
       end
@@ -37,9 +37,9 @@ after_initialize do
           notification_type: notification_type,
           user_id: group_user.user_id,
           data: {
-            message: "custom_notification",
-            display_username: "/admin/users/list/new",
-            topic_title: "#{user.username} зарегистрировался",
+            message: "custom_notification.register",
+            display_username: user.username,
+            topic_title: "зарегистрировался",
           }.to_json
         )
       end
@@ -47,3 +47,5 @@ after_initialize do
   end
 
 end
+
+register_asset "stylesheets/common/custom-notification.scss"
