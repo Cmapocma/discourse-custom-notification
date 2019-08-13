@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# name: discourse-post-user-extras
-# about: A plugin to get groups icon after avatar, badges and signature
+# name: discourse-custom-notification
+# about: 
 # version: 1.0.0
 # author: O.S.
 # url: https://github.com/stuhin/discourse-custom-notification
